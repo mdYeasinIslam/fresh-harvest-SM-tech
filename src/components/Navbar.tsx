@@ -17,15 +17,22 @@ const Navbar = () => {
     console.log(pathName)
     const navElement = ({name,path}:NavbarProps)=>{
         return (
-            <div className={`font-semibold ${pathName === `/${path}` ? "text-blue-500" : "text-gray-700"}`}>
+            <div className={`font-semibold ${pathName === `/${path}` ? "text-black md:text-blue-500" : "text-white md:text-black"}`}>
                 <Link href={`/${path}`} className="hover:text-blue-500">{name}</Link>
             </div>
         )
 
     }
+    const othersNavElement = <>
+            <div className='hidden md:flex justify-between items-center gap-4'>
+                <button className="flex items-center gap-2 hover:text-black"><Heart  className='w-6 h-6'/><span className='hidden md:flex'>Favorite</span></button>
+                <button className="hidden md:flex items-center gap-2 hover:text-black"><ShoppingCart className='w-6 h-6'/><span className='hidden md:flex'>Cart</span></button>
+            </div>
+            <button className="hover:text-black text-white border px-1 rounded-md font-semibold ">Sign In</button>
+    </>
     return (
         <nav className="relative ">
-            <div className="container mx-auto flex justify-between items-center w-full px-4 py-8 lg:px-0  ">
+            <div className="container mx-auto flex justify-around items-center w-full px-4 py-8 lg:px-0  ">
                 {/* Left Side: Logo */}
                 <div className="w-full md:max-w-fit flex items-center justify-between ">
                     <Image
@@ -57,16 +64,14 @@ const Navbar = () => {
                 </div>
 
                 {/* Right Side: Favorite, Cart, Sign In (Hidden on small devices) */}
-                <div className="hidden sm:flex text-white  flex-1 justify-end gap-4">
-                    <button className="flex items-center gap-2 hover:text-blue-500"><Heart /><span>Favorite</span></button>
-                    <button className="flex items-center gap-2 hover:text-blue-500"><ShoppingCart className='w-6 h-6'/><span>Cart</span></button>
-                    <button className="hover:text-blue-500">Sign In</button>
+                <div className="hidden md:flex text-white font-semibold flex-1 justify-center gap-4">
+                  {othersNavElement}
                 </div>
             </div>
 
             {/* Sidebar Navigation for Small Devices */}
             <div
-                className={`block md:hidden fixed top-0 right-0 h-full bg-[#749B3F] shadow-lg z-50 transform ${
+                className={`block md:hidden fixed top-0  right-0 h-full bg-[#749B3F] shadow-lg z-50 transform ${
                     menuOpen ? "translate-x-0" : "translate-x-full"
                 } transition-transform duration-700 w-2/3 sm:hidden`}
             >
@@ -82,6 +87,7 @@ const Navbar = () => {
                     {navElement({name:"Shop",path:"shop"})}
                     {navElement({ name: "About us", path: "about" })}
                     {navElement({ name: "Blog", path: "blog" })}
+                    {othersNavElement}
                 </nav>
             </div>
         </nav>
