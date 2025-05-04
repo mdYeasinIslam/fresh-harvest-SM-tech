@@ -1,10 +1,11 @@
 import React from 'react';
+import Navbar from './Navbar';
 
 const Banner = () => {
     return (
-        <div className="bg-green-100 relative">
-
-            <div className="relative text-left py-16 px-4 bg-green-50">
+        <div className="max-w-[1600px] w-full h-[900px] mx-auto relative bg-[url('/bannerBg.png')] bg-cover bg-no-repeat   bg-center">
+            <Navbar />
+            <div className="relative text-left py-16 px-4 ">
                 <h1 className="text-4xl font-bold text-green-700">Fresh Fruits and Vegetables</h1>
                 <p className="mt-4 text-lg text-green-600">
                     At Fresh Harvest, we are passionate about providing you with the freshest
@@ -31,11 +32,7 @@ const Banner = () => {
                     className="bg-white absolute top-4 left-4 w-16 h-16"
                 /> */}
             </div>
-            <img
-                src="/banner-img.png"
-                alt="Right Side"
-                className="absolute top-0 right-0 w-1/3 h-full object-cover"
-            />
+           
         </div>
     );
 };
