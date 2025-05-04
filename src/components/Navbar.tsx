@@ -1,4 +1,5 @@
 'use client'
+import { ShoppingCart } from 'lucide-react';
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -7,7 +8,7 @@ const Navbar = () => {
     
     return (
         <nav className="relative">
-            <div className="flex justify-between items-center w-full p-4">
+            <div className="flex justify-between items-center w-full px-4 py-8">
                 {/* Left Side: Logo */}
                 <div className="w-full flex items-center justify-between ">
                     
@@ -17,14 +18,19 @@ const Navbar = () => {
                         alt="Logo"
                         width={500}
                         height={500}
-                        className="w-[225px] h-[39px]" />
+                        className="w-[181px] h-[32px] lg:w-[225px] lg:h-[39px]" />
                     {/* <h1 className='text-[#212337] text-xl font-bold'>Fresh Harvest</h1> */}
-                    <button
-                        className="text-2xl ml-4 sm:hidden"
-                        onClick={() => setMenuOpen(!menuOpen)}
-                    >
-                        {menuOpen ? "X" : "☰"}
-                    </button>
+                    <div className=' sm:hidden'>
+                        <button className="hover:text-blue-500 ">
+                            <ShoppingCart className='w-6 h-6'/>
+                         </button>
+                        <button
+                            className="text-2xl ml-4"
+                            onClick={() => setMenuOpen(!menuOpen)}
+                        >
+                            {menuOpen ? "X" : "☰"}
+                        </button>
+                    </div>
                     {/* Hamburger Menu for Small Devices */}
                 </div>
 
