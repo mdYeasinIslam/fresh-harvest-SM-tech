@@ -3,7 +3,7 @@ import React from 'react';
 
 const ShopSection = () => {
     return (
-        <section className="container mx-auto bg-white my-44 px-4">
+        <section className="container mx-auto bg-white mt-44 px-4">
             {/* First Part: Title and Description */}
             <div className="text-center mb-8  space-y-3 md:space-y-4 ">
                 <div className="inline-block px-0 py-0 bg-[#749B3F1A] text-[#749B3F] rounded-full text-[20px] font-semibold ">
@@ -49,14 +49,19 @@ const ShopSection = () => {
                         {/* Card Content */}
                         <div className="text-center p-2">
                             <h3 className="text-lg font-semibold ">Product {index + 1}</h3>
-                            <p className="text-gray-600 ">$10.00</p>
-                            <button className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition">
+                            <p className="text-gray-600 ">$10.00/kg</p>
+                            <button className="w-full border border-gray-300 bg-white text-black py-2 rounded hover:bg-[#FF6A1A] transition">
                                 Add to Cart
                             </button>
                         </div>
                     </div>
                 ))}
             </div>
+                <div className=' w-full text-center mt-8'>
+                    <button className="  border border-[#FF6A1A]  bg-white  font-semibold px-16 py-2 rounded hover:bg-[#FF6A1A] hover:text-black text-[#FF6A1A] transition">
+                         See all products
+                    </button>
+                </div>
         </section>
     );
 };
