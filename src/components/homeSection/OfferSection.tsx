@@ -1,8 +1,19 @@
+import Image from 'next/image';
 import React from 'react';
 
 const OfferSection = () => {
     return (
-        <div className="container mx-auto flex flex-col md:flex-row items-center justify-between bg-white p-8 rounded-lg shadow-lg">
+        <div className="relative container mx-auto flex flex-col md:flex-row items-center justify-between bg-white p-8 rounded-lg shadow-lg bg-[url('/images/offer/offerBG1.jpg')] md:bg-[url('/images/offer/offerBg2.png')] bg-cover bg-no-repeat">
+            <div className='absolute right-0 top-0 w-1/2 h-full'>
+                <Image
+                    src={"/images/offer/Group.png"}
+                    alt='Group'
+                    width={500}
+                    height={500}
+                    className='w-full h-full'
+                />
+                
+            </div>
             {/* Left Side: Offer Information */}
             <div className="flex-1 text-center md:text-left">
                 <p className="text-sm font-semibold text-green-600 uppercase">Special Offer</p>
