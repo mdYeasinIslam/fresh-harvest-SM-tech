@@ -7,7 +7,7 @@ const AboutSection = () => {
             {/* Left Side: Image */}
             <div className="w-full h-full ">
                 <Image
-                    src="/about_Img3.png"
+                    src="/images/about/about_Img3.png"
                     alt="About Fresh Harvest"
                     width={500}
                     height={500}   

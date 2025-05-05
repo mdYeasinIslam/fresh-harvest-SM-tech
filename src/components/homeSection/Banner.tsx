@@ -7,14 +7,14 @@ import Image from 'next/image';
 const BackgroundImage = () => (
     <div className="absolute top-0 left-0 h-full w-full">
         <Image
-            src="/bannerBg.png"
+            src="/images/banner/bannerBg.png"
             alt="Banner Background"
             fill
             priority
             className="hidden md:flex object-right lg:object-center"
         />
         <Image
-            src="/Bg-smDevice.png"
+            src="/images/banner/Bg-smDevice.png"
             alt="Banner Background"
             fill
             priority
@@ -49,16 +49,16 @@ const ForegroundContent = () => (
                     <p className='text-[#176D38] text-[9px] lg:text-[16px] font-semibold'>Up to <span className='text-black text-[11px] lg:text-xl font-semibold border rounded-full border-red-500'> 70%</span> <span className='text-black'>off</span></p>
                     <button className='text-[9px] lg:text-[12px] font-semibold px-1 rounded-full  border bg-[#176D38] text-white'>CODE : <span className='text-[#FAC714]'>FRESH25</span> </button>
                 </div>
-                    <Image src="/bannerImg2.png" alt="Banner" width={200} height={200} className='w-[86px] lg:w-[150px] h-[84px] lg:h-[150px]' />
+                    <Image src="/images/banner/bannerImg2.png" alt="Banner" width={200} height={200} className='w-[86px] lg:w-[150px] h-[84px] lg:h-[150px]' />
             </div>
             <div className='relative top-24 lg:top-1 space-y-2'>
             <p>Download App :</p>
             <figure className=' flex gap-2 lg:gap-4'> 
             <Image
-                src="/appstore.png" alt="Banner" width={500}
+                src="/images/banner/appstore.png" alt="Banner" width={500}
                 height={500} className='w-34 h-full' />
             
-            <Image src="/googleplay.png" alt="Banner"
+            <Image src="/images/banner/googleplay.png" alt="Banner"
                 width={500}
                 height={500} className='w-34 h-full' />
             </figure>
