@@ -24,15 +24,15 @@ const Navbar = () => {
 
     }
     const othersNavElement = <>
-            <div className='hidden md:flex justify-between items-center gap-4 '>
-                <button className="flex items-center gap-2 hover:text-black"><Heart  className='w-6 h-6'/><span className='hidden md:flex'>Favorite</span></button>
-                <button className="hidden md:flex items-center gap-2 hover:text-black "><ShoppingCart className='w-6 h-6 '/><span className='hidden md:flex'>Cart</span></button>
+            <div className='hidden md:flex justify-between items-center gap-5 lg:gap-2 xl:gap-4 '>
+                <button className="flex items-center gap-0.5  xl:gap-2 hover:text-black"><Heart className=' w-6 lg:w-4 xl:w-6 h-6 lg:h-4 xl:h-6  '/><span className='hidden lg:flex'>Favorite</span></button>
+                <button className="hidden md:flex items-center gap-0.5 xl:gap-2 hover:text-black "><ShoppingCart className='w-6 h-6 lg:w-4 xl:w-6 lg:h-4 xl:h-6  '/><span className='hidden lg:flex'>Cart</span></button>
             </div>
             <button className="hover:text-black text-white border px-1 rounded-md font-semibold ">Sign In</button>
     </>
     return (
         <nav className="relative ">
-            <div className="container mx-auto flex justify-around items-center w-full px-4 py-8 lg:px-0  ">
+            <div className="container mx-auto flex justify-around items-center w-full px-4 py-8 lg:px-5  ">
                 {/* Left Side: Logo */}
                 <div className="w-full md:max-w-fit flex items-center justify-between ">
                     <Image
@@ -56,7 +56,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Center: Navigation Icons/Elements (Hidden on small devices) */}
-                <div className="hidden sm:flex flex-2 justify-center gap-16 ">
+                <div className="hidden sm:flex flex-2 justify-center gap-6 lg:gap-10 xl:gap-16 ">
                     {navElement({name:"Home",path:""})}
                     {navElement({name:"Shop",path:"shop"})}
                     {navElement({ name: "About us", path: "about" })}
@@ -64,7 +64,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Right Side: Favorite, Cart, Sign In (Hidden on small devices) */}
-                <div className="hidden md:flex text-black lg:text-white font-semibold flex-1 justify-center gap-4">
+                <div className="hidden md:flex text-black md:text-white font-semibold flex-1 justify-end xl:justify-center md:gap-5 lg:gap-2 xl:gap-4">
                   {othersNavElement}
                 </div>
             </div>
@@ -82,7 +82,7 @@ const Navbar = () => {
                     <X className='w-6 h-6 font-bold ' />
                 </button>
                 
-                <nav className="flex flex-col items-start p-5">
+                <nav className="flex flex-col items-start p-5 gap-2">
                     {navElement({name:"Home",path:""})}
                     {navElement({name:"Shop",path:"shop"})}
                     {navElement({ name: "About us", path: "about" })}
