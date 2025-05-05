@@ -24,9 +24,9 @@ const Navbar = () => {
 
     }
     const othersNavElement = <>
-            <div className='hidden md:flex justify-between items-center gap-4'>
+            <div className='hidden md:flex justify-between items-center gap-4 '>
                 <button className="flex items-center gap-2 hover:text-black"><Heart  className='w-6 h-6'/><span className='hidden md:flex'>Favorite</span></button>
-                <button className="hidden md:flex items-center gap-2 hover:text-black"><ShoppingCart className='w-6 h-6'/><span className='hidden md:flex'>Cart</span></button>
+                <button className="hidden md:flex items-center gap-2 hover:text-black "><ShoppingCart className='w-6 h-6 '/><span className='hidden md:flex'>Cart</span></button>
             </div>
             <button className="hover:text-black text-white border px-1 rounded-md font-semibold ">Sign In</button>
     </>
@@ -42,11 +42,11 @@ const Navbar = () => {
                         height={500}
                         className="w-[181px] h-[32px] lg:w-[225px] lg:h-[39px]" />
                     <div className='flex items-center sm:hidden '>
-                        <button className="hover:text-blue-500 ">
+                        <button className="text-white hover:text-blue-500 ">
                             <ShoppingCart className='w-6 h-6'/>
                          </button>
                         <button
-                            className="text-2xl ml-4"
+                            className="text-white text-2xl ml-4"
                             onClick={() => setMenuOpen(!menuOpen)}
                         >
                             {menuOpen ? <X/> : "☰"}
@@ -64,7 +64,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Right Side: Favorite, Cart, Sign In (Hidden on small devices) */}
-                <div className="hidden md:flex text-white font-semibold flex-1 justify-center gap-4">
+                <div className="hidden md:flex text-black lg:text-white font-semibold flex-1 justify-center gap-4">
                   {othersNavElement}
                 </div>
             </div>
@@ -87,7 +87,10 @@ const Navbar = () => {
                     {navElement({name:"Shop",path:"shop"})}
                     {navElement({ name: "About us", path: "about" })}
                     {navElement({ name: "Blog", path: "blog" })}
+                   
+
                     {othersNavElement}
+                   
                 </nav>
             </div>
         </nav>
