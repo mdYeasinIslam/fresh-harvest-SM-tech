@@ -1,5 +1,6 @@
 import AboutSection from "@/components/homeSection/AboutSection";
 import Banner from "@/components/homeSection/Banner";
+import OfferSection from "@/components/homeSection/OfferSection";
 import ShopSection from "@/components/homeSection/ShopSection";
 
 export default function Home() {
@@ -8,7 +9,7 @@ export default function Home() {
       <Banner />
       <ShopSection />
       <AboutSection/>
-      <ShopSection />
+      <OfferSection />
     </div>
   );
 }
