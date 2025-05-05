@@ -24,7 +24,7 @@ const BackgroundImage = () => (
 );
 
 const ForegroundContent = () => (
-        <div className="relative z-10 w-full lg:w-[660px] lg:h-[390px] text-left lg:left-20  top-10 lg:top-20 space-y-7 lg:space-y-8 px-4 md:px-10">
+        <div className="relative z-10 w-full lg:w-[660px] lg:h-[390px] text-left md:left-0 lg:left-12 xl:left-20  top-10 md:top-14 lg:top-20 space-y-7 lg:space-y-8 px-4 md:px-10">
             <div className="space-y-4">
                 <h5 className="py-1 px-4 bg-[#749B3F1A] inline-block rounded-xl">
                     <span className="text-[#749B3F] font-semibold text-[17px] md:text-[19px]">
@@ -42,7 +42,7 @@ const ForegroundContent = () => (
             <button className="bg-[#FF6A1A] text-white px-6 py-3 rounded text-[18px] font-semibold transition-transform transform hover:scale-105 duration-500 hover:bg-[#e55a0f] shadow-lg hover:shadow-xl">
                 Shop Now
             </button>
-            <div className='relative lg:left-48 w-[192px] md:w-[250px] lg:w-[332px] flex border-2 border-[#749B3F] rounded-lg bg-[#EBEBEB] p-1'>
+            <div className='relative md:left-32 lg:left-40 xl:left-48 w-[192px] md:w-[225px]  lg:w-[332px] flex border-2 border-[#749B3F] rounded-lg bg-[#EBEBEB] p-1'>
                 <div className='lg:p-1'>
                     <h4 className='font-medium text-[8px] md:text-[11px] lg:text-[14px] text-[#176D38] '>Special Offer</h4>
                     <h1 className='text-[16px] md:text-xl lg:text-3xl font-medium '>Fresh Salad</h1>
