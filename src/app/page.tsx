@@ -10,7 +10,6 @@ export default function Home() {
       <ShopSection />
       <AboutSection/>
       <OfferSection />
-      <AboutSection/>
     </div>
   );
 }
