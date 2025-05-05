@@ -3,28 +3,35 @@ import React from 'react';
 
 const AboutSection = () => {
     return (
-        <section className="container mx-auto flex flex-col md:flex-row items-center md:items-start gap-6  bg-white">
+        <section className="container mx-auto w-full h-[650px] mt-16  flex flex-col md:flex-row items-center justify-between md:items-start gap-6  bg-white ">
             {/* Left Side: Image */}
-            <div className="w-full md:w-1/2">
+            <div className="w-full h-full ">
                 <Image
                     src="/about_Img3.png"
                     alt="About Fresh Harvest"
                     width={500}
                     height={500}   
-                    className="w-full h-auto rounded-lg shadow-md"
+                    className="w-full h-full rounded-lg"
                 />
             </div>
 
             {/* Right Side: Details */}
-            <div className="w-ful h-full md:w-1/2 text-center md:text-left place-content-center">
-                <h2 className="text-3xl font-bold text-gray-800 mb-4">About Fresh Harvest</h2>
-                <p className="text-gray-600 leading-relaxed mb-4">
-                    Welcome to Fresh Harvest, your premier destination for high-quality and fresh produce. We are passionate about providing you with the finest fruits, vegetables, and salad ingredients to nourish your body and delight your taste buds. With a commitment to excellence, sustainability, and customer satisfaction, Fresh Harvest is here to revolutionize your grocery shopping experience.
-                </p>
-                <button className="px-6 py-2 text-white bg-orange-500 hover:bg-orange-600 rounded-lg shadow-md transition">
-                    Read More
-                </button>
+            <div className="w-full h-full md:flex flex-col justify-center p-4 md:p-0  gap-5 ">
+                <div className='md:w-[465px] space-y-4'>
+                    <div className="inline-block px-2 py-0 bg-[#749B3F1A] text-[#749B3F] rounded-full text-[18px] font-semibold ">
+                    About us
+                    </div>
+                    <h2 className="text-[30px] md:text-[48px] font-medium text-gray-800">About Fresh Harvest1</h2>
+                    <p className="text-gray-600 text-[14px]">
+                        Welcome to Fresh Harvest, your premier destination for high-quality and fresh produce. We are passionate about providing you with the finest fruits, vegetables, and salad ingredients to nourish your body and delight your taste buds. With a commitment to excellence, sustainability, and customer satisfaction, Fresh Harvest is here to revolutionize your grocery shopping experience.
+                    </p>
+                    <button className="px-6 py-2 text-white bg-orange-500 hover:bg-orange-600 rounded-lg shadow-md transition">
+                        Read More
+                    </button>
+                </div>
+               
             </div>
+
         </section>
     );
 };
