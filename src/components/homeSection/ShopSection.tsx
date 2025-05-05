@@ -1,18 +1,20 @@
 import Image from 'next/image';
 import React from 'react';
+import CommonTitle from '../CommonTitle';
 
 const ShopSection = () => {
     return (
         <section className="container mx-auto bg-white mt-44 px-4">
             {/* First Part: Title and Description */}
             <div className="text-center mb-8  space-y-3 md:space-y-4 ">
-                <div className="inline-block px-0 py-0 bg-[#749B3F1A] text-[#749B3F] rounded-full text-[20px] font-semibold ">
-                    Our Products
-                </div>
-                <h2 className="text-3xl lg:text-5xl font-extrabold ">Our Fresh Products</h2>
-                <p className="text-gray-600 max-w-xl mx-auto">
-                    We pride ourselves on offering a wide variety of fresh and flavorful fruits, vegetables, and salad ingredients.
-                </p>
+                <CommonTitle
+                    content1=' Our Products'
+                    content2='Our Fresh Products'
+                    content3='We pride ourselves on offering a wide variety of fresh and flavorful fruits, vegetables, and salad ingredients.'
+                    style_div='inline-block px-0 py-0 bg-[#749B3F1A] text-[#749B3F] rounded-full text-[20px] font-semibold'
+                    style_h='text-3xl lg:text-5xl font-extrabold'
+                    style_p='text-gray-600 max-w-xl mx-auto'
+                />
                 <div className="flex justify-center mt-6 gap-3 md:space-x-4">
                     {['All', 'Fruits', 'Vegetables', 'Salad'].map((category, index) => (
                         <button

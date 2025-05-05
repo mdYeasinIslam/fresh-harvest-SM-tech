@@ -17,7 +17,7 @@ const AboutSection = () => {
 
             {/* Right Side: Details */}
             <div className="w-full h-full md:flex flex-col justify-center items-start p-4 md:p-0 ">
-                <div className='md:w-[470px] space-y-2 md:space-y-4'>
+                <div className='lg:w-[470px] space-y-2 md:space-y-4'>
                     <div className="inline-block px-2 py-0 bg-[#749B3F1A] text-[#749B3F] rounded-full text-[18px] font-semibold ">
                     About us
                     </div>
