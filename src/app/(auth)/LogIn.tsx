@@ -32,7 +32,7 @@ const Login = () => {
                         console.log(res)
                         if (res.success) {
                             localStorage.setItem('authToken', res?.data?.token)     
-                            toast.success(res?.message)
+                            toast.success(res?.message) 
                             dispatch(setToken(res?.data?.token));
                             dispatch(closeLogInModal())
                         }

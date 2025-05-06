@@ -4,6 +4,7 @@ import { useRegisterUserMutation } from '@/services/auth/authApi'
 import { Facebook, X } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
+import toast from 'react-hot-toast'
 
 
 const Register = () => {
@@ -29,8 +30,13 @@ const Register = () => {
                 .unwrap()
                 .then((res) => {
                     console.log(res)
-
-                    e.currentTarget.reset()
+                    if (res.success) {
+                        toast.success(res?.message)
+                        dispatch(closeRegisterModal())
+                    }
+                    else {
+                        toast.error(res.message)
+                    }
                 })
                 .catch((err) => {
                     console.log(err)
