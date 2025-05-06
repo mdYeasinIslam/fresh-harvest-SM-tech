@@ -3,6 +3,7 @@
 import React from 'react';
 import Navbar from '../Navbar';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const BackgroundImage = () => (
     <div className="absolute top-0 left-0 h-full w-full">
@@ -39,9 +40,11 @@ const ForegroundContent = () => (
                     and most flavorful fruits and vegetables.
                 </p>
             </div>
-            <button className="bg-[#FF6A1A] text-white px-6 py-3 rounded text-[18px] font-semibold transition-transform transform hover:scale-105 duration-500 hover:bg-[#e55a0f] shadow-lg hover:shadow-xl">
-                Shop Now
-            </button>
+            <Link href="/shop">
+                <button className="bg-[#FF6A1A] text-white px-6 py-3 rounded text-[18px] font-semibold transition-transform transform hover:scale-105 duration-500 hover:bg-[#e55a0f] shadow-lg hover:shadow-xl">
+                    Shop Now
+                </button>
+            </Link>
             <div className='relative md:left-32 lg:left-40 xl:left-48 w-[192px] md:w-[225px]  lg:w-[332px] flex border-2 border-[#749B3F] rounded-lg bg-[#EBEBEB] p-1'>
                 <div className='lg:p-1'>
                     <h4 className='font-medium text-[8px] md:text-[11px] lg:text-[14px] text-[#176D38] '>Special Offer</h4>

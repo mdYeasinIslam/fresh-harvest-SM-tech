@@ -2,13 +2,14 @@
 import { useGetProductsQuery } from '@/services/productApi';
 import ProductCard from './component/ProductCard';
 import { Product } from '@/types/product';
-import Navbar from '@/components/Navbar';
 import CommonTitle from '@/components/CommonTitle';
+import Loader from '@/components/Loader';
+import Navbar from '@/components/Navbar';
 
 export default function Shop() {
   const { data: products, error, isLoading } = useGetProductsQuery();
   const productsData = products?.data as Product[]
-  if (isLoading) return <p className="p-4">Loading...</p>;
+  if (isLoading) return <p className="flex justify"><Loader/></p>;
   if (error) return <p className="p-4 text-red-500">Failed to load products.</p>;
 
     return (
