@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 const FeedbackSect = () => {
   return (
-      <div className='container mx-auto my-16 md:my-35 '>
+      <div className='container max-w-[1015px] mx-auto my-16 md:my-35 '>
           <div className='text-center space-y-4'>
               <CommonTitle
                     content1=' Testimonial'
@@ -23,7 +23,7 @@ const FeedbackSect = () => {
                       alt="Customer Feedback"
                       width={500}
                        height={500}
-                      className="w-full max-w-sm rounded-lg shadow-lg"
+                      className="w-[204px] md:w-full  max-w-[335px] rounded-lg shadow-lg"
                   />
               </div>
 
@@ -32,8 +32,8 @@ const FeedbackSect = () => {
                   <p className="text-lg text-gray-600 italic">
                      "I absolutely love Fresh Harvest! The quality of their produce is outstanding. It's always fresh, flavorful, and delicious. The convenience of ordering online and having it delivered to my doorstep saves me so much time. Fresh Harvest has become my go-to for all my fruit and vegetable needs."
                   </p>
-                  <h4 className="text-xl font-bold text-gray-800">Jane Doe</h4>
-                  <p className="text-sm text-gray-500">Professional chef</p>
+                  <h4 className="text-xl font-bold text-gray-800">Jane Doe --  <span className="text-sm text-gray-500">Professional chef</span></h4>
+                
               </div>
           </div>
           <div className='flex gap-5 justify-center mt-16'>
