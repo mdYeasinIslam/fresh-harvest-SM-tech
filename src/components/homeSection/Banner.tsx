@@ -69,11 +69,11 @@ const ForegroundContent = () => (
 
 const Banner = () => {
     return (
-        <div className="relative max-w-[1600px] mx-auto h-[810px] md:h-[900px] lg:h-[1000px]">
+        <section className="relative max-w-[1600px] mx-auto h-[810px] md:h-[900px] lg:h-[1000px]">
             <BackgroundImage />
             <Navbar />
             <ForegroundContent />
-        </div>
+        </section>
     );
 };
 

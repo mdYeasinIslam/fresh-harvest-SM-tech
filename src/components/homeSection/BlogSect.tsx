@@ -8,20 +8,20 @@ interface BlogCardProps {
     title: string;
     link: string;
 }
-
+//  w-[343px] h-[370px] lg:w-[340px] xl:w-[384px] md:h-[399px]
 const BlogCard: React.FC<BlogCardProps> = ({ imageSrc, date, title, link }) => (
-    <div className="bg-white shadow-md rounded-lg overflow-hidden w-[343px] h-[370px] md:w-[384px] md:h-[399px] mx-auto">
+    <div className="bg-white shadow-sm rounded-lg  space-y-3 pl-1">
         <Image
             src={imageSrc}
             alt={title}
             width={500}
             height={500}
-            className="w-full h-[230px] md:h-[260px] object-cover"
+            className="w-full h-[230px] md:h-[260px] flex items-center justify-center"
         />
-        <div className="py-4">
+        <div className="space-y-2">
             <p className="text-gray-500 text-sm">{date}</p>
-            <h3 className="text-sm text-semibold md:text-lg font-medium mt-1">{title}</h3>
-            <a href={link} className="text-[#749B3F]  font-medium mt-2 inline-block">
+            <h3 className="text-sm text-semibold md:text-md xl:text-lg font-medium ">{title}</h3>
+            <a href={link} className="text-[#FF6A1A]   font-semibold inline-block">
                 Read More →
             </a>
         </div>
@@ -31,19 +31,19 @@ const BlogCard: React.FC<BlogCardProps> = ({ imageSrc, date, title, link }) => (
 const BlogSect = () => {
     const blogs = [
         {
-            imageSrc: '/images/about/about_Img1.png',
+            imageSrc: '/images/blog/image1.png',
             date: 'May 23, 2024',
             title: "Exploring Seasonal Delights: A Guide to What's Fresh Right Now",
             link: '#',
         },
         {
-            imageSrc: '/images/about/about_Img1.png',
+            imageSrc: '/images/blog/image2.png',
             date: 'May 23, 2024',
             title: 'Mastering Salad Creations: Tips and Tricks for Building Delicious and Nutritious Salads',
             link: '#',
         },
         {
-            imageSrc: '/images/about/about_Img1.png',
+            imageSrc: '/images/blog/image3.png',
             date: 'May 23, 2024',
             title: 'The Art of Meal Prepping: How to Save Time and Eat Healthy Throughout the Week',
             link: '#',
@@ -51,7 +51,7 @@ const BlogSect = () => {
     ];
 
     return (
-        <section className='container mx-auto my-36 space-y-5'>
+        <section className='container mx-auto my-36 space-y-5 px-5 md:px-2'>
             <header className="text-center space-y-5">
                 <CommonTitle
                     content1="Our Blog"
@@ -62,7 +62,7 @@ const BlogSect = () => {
                     style_p="text-gray-600 max-w-xl mx-auto"
                 />
             </header>
-            <article className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <article className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  items-center justify-center gap-4 md:gap-3 xl:gap-6">
                 {blogs.map((blog, index) => (
                     <BlogCard
                         key={index}

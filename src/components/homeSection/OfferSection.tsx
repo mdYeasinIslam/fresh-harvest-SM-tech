@@ -19,24 +19,25 @@ const OfferSection = () => {
     ];
 
     return (
-        <div className="relative my-10 container mx-auto
-       h-[620px] md:h-[550px] 2xl:h-[640] md:flex flex-col md:flex-row items-center justify-between bg-white rounded-lg shadow-lg  md:bg-[url('/images/offer/offerBg2.png')] md:bg-cover md:bg-no-repeat ">
-            { /* Background Images */}
+        <section className="relative md:bg-[url('/images/offer/offerBg2.png')] md:bg-cover md:bg-no-repeat bg-white">
+            <div className="container mx-auto my-10
+       h-[620px] md:h-[550px] 2xl:h-[640] md:flex flex-col md:flex-row items-center justify-between  rounded-lg shadow-lg   ">
+                { /* Background Images */}
             
-                        {backgroundImages?.map((image, index) => (
-                            <div
-                                key={index}
-                                className={`${image.className}`}
-                            >
-                                <Image
-                                    src={image.src}
-                                    alt={image.alt}
-                                    width={500}
-                                    height={500}
-                                    className="w-full h-full md:max-w-lg md:mx-0"
-                                />
-                            </div>
-                        ))}
+                {backgroundImages?.map((image, index) => (
+                    <div
+                        key={index}
+                        className={`${image.className}`}
+                    >
+                        <Image
+                            src={image.src}
+                            alt={image.alt}
+                            width={500}
+                            height={500}
+                            className="w-full h-full md:max-w-lg md:mx-0"
+                        />
+                    </div>
+                 ))}
 
             {/* Left Side: Offer Information */}
             <div className="relative py-24 h-full  md:left-20 place-items-center md:place-items-start text-center  md:text-left space-y-4">
@@ -65,7 +66,7 @@ const OfferSection = () => {
             </div>
 
             {/* Right Side: Image */}
-            <div className="hidden md:block absolute right-0 bottom-24 lg:right-20  lg:bottom-20">
+            <div className="hidden md:block absolute right-0 bottom-24 lg:right-20  lg:bottom-20 xl:right-32">
                 <Image
                     src="/images/offer/fruits.png"
                     alt="Seasonal Fruit Bundle"
@@ -74,7 +75,9 @@ const OfferSection = () => {
                     className="w-full h-full md:max-w-sm lg:max-w-lg mx-auto xl:mx-0"
                 />
             </div>
-        </div>
+           </div>
+            
+        </section>
     );
 };
 

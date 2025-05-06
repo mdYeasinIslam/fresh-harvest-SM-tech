@@ -4,8 +4,8 @@ import Image from 'next/image'
 
 const FeedbackSect = () => {
   return (
-      <div className='container max-w-[1015px] mx-auto my-16 md:my-35 '>
-          <div className='text-center space-y-4'>
+      <section className='container max-w-[1015px] mx-auto my-16 md:my-35 '>
+          <header className='text-center space-y-4'>
               <CommonTitle
                     content1=' Testimonial'
                     content2='What Our  Customers Say'
@@ -14,7 +14,7 @@ const FeedbackSect = () => {
                     style_h='w-2/3 mx-auto md:w-full text-[32px] md:text-3xl lg:text-5xl font-extrabold'
                     style_p='text-gray-600 max-w-xl mx-auto'
                 />
-          </div>
+          </header>
           <div className="max-w-6xl mx-auto flex flex-col lg:grid grid-cols-5 items-center  gap-5 lg:space-y-0  mt-8 ">
               {/* Left Side - Image */}
               <div className="flex-shrink-0 lg:col-span-2">
@@ -47,7 +47,7 @@ const FeedbackSect = () => {
                   
               </div>
           </div>
-    </div>
+    </section>
   )
 }
 
