@@ -58,7 +58,7 @@ const OfferSection = () => {
                     ))}
                 </div>
                 <div className="mt-6">
-                    <button className=" md:text-2xl font-semibold px-4 md:px-3 py-1 md:py-1 rounded-full border bg-[#176D38] text-white">
+                    <button className=" md:text-3xl font-bold px-4 md:px-3 py-1 md:py-1 rounded-full border bg-[#176D38] text-white">
                         CODE : <span className="text-[#FAC714]">FRESH25</span>
                     </button>
                 </div>
