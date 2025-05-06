@@ -14,21 +14,20 @@ type NavbarProps = {
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const pathName = usePathname();
-    console.log(pathName)
     const navElement = ({name,path}:NavbarProps)=>{
         return (
             <div className={`font-semibold ${pathName === `/${path}` ? "text-black md:text-blue-500" : "text-white md:text-black"}`}>
-                <Link href={`/${path}`} className="hover:text-blue-500">{name}</Link>
+                <Link href={`/${path}`} className="hover:text-blue-500 text-lg">{name}</Link>
             </div>
         )
 
     }
     const othersNavElement = <>
-            <div className='hidden md:flex justify-between items-center gap-5 lg:gap-2 xl:gap-4 '>
-                <button className="flex items-center gap-0.5  xl:gap-2 hover:text-black"><Heart className=' w-6 lg:w-4 xl:w-6 h-6 lg:h-4 xl:h-6  '/><span className='hidden lg:flex'>Favorite</span></button>
-                <button className="hidden md:flex items-center gap-0.5 xl:gap-2 hover:text-black "><ShoppingCart className='w-6 h-6 lg:w-4 xl:w-6 lg:h-4 xl:h-6  '/><span className='hidden lg:flex'>Cart</span></button>
+            <div className='hidden md:flex justify-between items-center gap-5 lg:gap-2 xl:gap-4 text-lg'>
+                <button className={`flex items-center gap-0.5  xl:gap-2  ${pathName=='/'?'hover:text-black':'hover:text-blue-500'}`}><Heart className=' w-6 lg:w-4 xl:w-6 h-6 lg:h-4 xl:h-6  '/><span className='hidden lg:flex'>Favorite</span></button>
+                <button className={`hidden md:flex items-center gap-0.5 xl:gap-2 ${pathName=='/'?'hover:text-black':'hover:text-blue-500'}`}><ShoppingCart className='w-6 h-6 lg:w-4 xl:w-6 lg:h-4 xl:h-6  '/><span className='hidden lg:flex'>Cart</span></button>
             </div>
-            <button className="hover:text-black text-white border px-1 rounded-md font-semibold ">Sign In</button>
+            <button className={`${pathName=='/'?'hover:text-black':'hover:text-blue-500'}  border px-1 rounded-md font-semibold`}>Sign In</button>
     </>
     return (
         <nav className="relative ">
@@ -64,7 +63,7 @@ const Navbar = () => {
                 </div>
 
                 {/* Right Side: Favorite, Cart, Sign In (Hidden on small devices) */}
-                <div className="hidden md:flex text-black md:text-white font-semibold flex-1 justify-end xl:justify-center md:gap-5 lg:gap-2 xl:gap-4">
+                <div className={`hidden md:flex text-black  ${pathName==='/'?'md:text-white':'md:text-black'} font-semibold flex-1 justify-end xl:justify-center md:gap-5 lg:gap-2 xl:gap-4`}>
                   {othersNavElement}
                 </div>
             </div>
