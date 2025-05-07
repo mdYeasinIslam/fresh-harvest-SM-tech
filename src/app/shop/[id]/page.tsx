@@ -8,6 +8,7 @@ import { Heart, ShoppingCart } from 'lucide-react';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import React from 'react'
+import ExtraInfo from '../component/ExtraInfo';
 
 const SingleProduct = () => {
     const param = useParams()
@@ -24,7 +25,7 @@ const SingleProduct = () => {
       <div>
           <Navbar/>
           <div className='container mx-auto lg:h-[560px] flex flex-col md:flex-row justify-between gap-5 my-10 px-5 lg:px-0'>
-              <figure className='w-full max-w-[580px] mx-auto lg:h-[550px] bg-gray-200 rounded-md'>
+              <figure className='w-full max-w-[580px] mx-auto lg:h-[550px] border border-gray-300 shadow-md bg-gray-200 rounded-md'>
                 <Image
                     src={`${imgeUrl}`}
                     alt={product?.productName}
@@ -74,6 +75,7 @@ const SingleProduct = () => {
                 </div>
             </div>
           </div>
+          <ExtraInfo product={product} />
       </div>
   )
 }

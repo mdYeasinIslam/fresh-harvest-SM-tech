@@ -32,12 +32,19 @@ const ProductCard =({ product }: { product: Product }) => {
 
                 <div className="text-center p-2">
                     <h3 className="text-lg font-semibold ">{product?.productName}</h3>
-                    <p className="text-gray-600 ">${ product?.price}</p>
-                    <Link href={`/shop/${product?.id}`} className="">
-                        <button className="w-full border border-gray-300 bg-white text-black py-2 rounded hover:bg-[#FF6A1A] transition">
-                            Add to Cart
-                        </button>
-                    </Link>
+                    <p className="text-gray-600 ">${product?.price}</p>
+                    <div className='w-full flex flex-col md:flex-row justify-between items-center gap-1'>
+
+                        <Link href={`/shop/${product?.id}`} className="w-full ">
+                            <button className="w-full px-1 border border-gray-300 bg-white text-black py-2 rounded hover:bg-[#FF6A1A] transition">
+                                See Details
+                            </button>
+                        </Link>
+                         <button className="w-full px-1 border border-gray-300 bg-white text-black py-2 rounded hover:bg-[#FF6A1A] transition">
+                                Add to cart
+                            </button>
+                    </div>
+                   
                 </div>
             </div>
         </div>
