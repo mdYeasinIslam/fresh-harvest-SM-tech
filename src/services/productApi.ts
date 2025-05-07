@@ -3,8 +3,8 @@ import { Product } from '@/types/product';
 
 type QueryType = {
     success: boolean,
-message: string
-data:Product[]
+    message: string
+    data:Product[]
 }
 
 export const productApi = createApi({
@@ -15,6 +15,6 @@ export const productApi = createApi({
       query: () => 'products',
     }),
   }),
-});
+}); 
 
 export const { useGetProductsQuery } = productApi;

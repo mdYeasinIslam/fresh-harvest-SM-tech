@@ -9,7 +9,7 @@ import Navbar from '@/components/Navbar';
 export default function Shop() {
   const { data: products, error, isLoading } = useGetProductsQuery();
   const productsData = products?.data as Product[]
-  if (isLoading) return <div className="flex justify"><Loader/></div>;
+  if (isLoading) return <div className="flex justify-center"><Loader/></div>;
   if (error) return <p className="p-4 text-red-500">Failed to load products.</p>;
 
     return (

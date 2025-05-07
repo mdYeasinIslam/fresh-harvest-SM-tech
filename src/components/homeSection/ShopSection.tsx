@@ -5,11 +5,12 @@ import Link from 'next/link';
 import { useGetProductsQuery } from '@/services/productApi';
 import { Product } from '@/types/product';
 import ProductCard from '@/app/shop/component/ProductCard';
+import Loader from '../Loader';
 
 const ShopSection = () => {
      const { data: products, error, isLoading } = useGetProductsQuery();
       const productsData = products?.data as Product[]
-      if (isLoading) return <p className="p-4">Loading...</p>;
+      if (isLoading) return <div className="p-4 flex justify-center"><Loader/></div>;
       if (error) return <p className="p-4 text-red-500">Failed to load products.</p>;
     
     return (
