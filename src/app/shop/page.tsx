@@ -32,7 +32,6 @@ export default function Shop() {
             setAllProduct(filteredProducts as Product[])
         }
     }
-    console.log(allProduct)
 
 
   if (isLoading || isPending) return <div className="flex justify-center"><Loader/></div>;
@@ -49,7 +48,7 @@ export default function Shop() {
                     style_h='text-3xl lg:text-5xl font-extrabold'
                     style_p='text-gray-600 max-w-xl mx-auto'
                 />
-                <div className="flex justify-center mt-6 gap-3 md:space-x-4">
+                <div className="flex justify-center mt-6 gap-1 md:gap-3 md:space-x-4">
                     <button
                     onClick={()=>handleFilter('All')}
                         className={`px-3 md:px-4 py-2 rounded-md border ${

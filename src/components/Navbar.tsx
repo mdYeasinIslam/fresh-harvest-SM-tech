@@ -50,16 +50,22 @@ const Navbar = () => {
         )
     }
     const othersNavElement = <>
-            <div className='hidden md:flex justify-between items-center gap-5 lg:gap-5 xl:gap-4 text-md'>
-                <button className={`flex items-center   xl:gap-1  ${pathName=='/'?'hover:text-black':'hover:text-blue-500'}`}><Heart className=' w-6 lg:w-4 xl:w-6 h-6 lg:h-4 xl:h-6  '/><span className='hidden lg:flex'>Favorite</span></button>
-                <button className={`hidden md:flex items-center  xl:gap-2 ${pathName=='/'?'hover:text-black':'hover:text-blue-500'}`}><ShoppingCart className='w-6 h-6 lg:w-4 xl:w-6 lg:h-4 xl:h-6  '/><span className='hidden lg:flex'>Cart</span></button>
+            <div className='hidden md:flex justify-between items-center gap-5 lg:gap-3 xl:gap-4 text-md'>
+                <button className={`flex items-center   lg:gap-2 xl:gap-1  ${pathName=='/'?'hover:text-black':'hover:text-blue-500'}`}><Heart className=' w-6 lg:w-5 xl:w-6 h-6 lg:h-5 xl:h-6  '/><span className='hidden lg:flex'>Favorite</span></button>
+                <button className={`hidden md:flex items-center relative gap-3 xl:gap-2 ${pathName=='/'?' hover:text-black':'hover:text-blue-500 '}`}>
+                <span className='relative flex items-center gap-1'>
+                <ShoppingCart className='w-6 h-6 lg:w-5 xl:w-6 lg:h-5 xl:h-6' ></ShoppingCart>
+                    <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 lg:w-4 lg-4 xl:w-5 xl:h-5 flex items-center justify-center">3</span>
+                </span>   
+                    <span className='hidden lg:flex'>Cart</span>
+                </button>
             </div>
             {
               token !== null && token?.length > 0 ?
-                 <button onClick={signOutHandler} className={`${pathName=='/'?' hover:text-black':' hover:text-blue-500 text-white md:text-black'}  border px-1 rounded-md font-semibold`}>Sign-Out</button>
+                 <button onClick={signOutHandler} className={`${pathName=='/'?'text-white  hover:text-black':' hover:text-blue-500 text-white md:text-black'}  border px-1 rounded-md font-semibold`}>Sign-Out</button>
                 :
 
-                 <button onClick={handleOnclick} className={`${pathName=='/'?' hover:text-black':' hover:text-blue-500 text-white md:text-black'}  border px-1 rounded-md font-semibold`}>Sign In</button>
+                 <button onClick={handleOnclick} className={`${pathName=='/'?'text-white  hover:text-black':' hover:text-blue-500 text-white md:text-black'}  border px-1 rounded-md font-semibold`}>Sign In</button>
             }
            
     </>
@@ -78,7 +84,11 @@ const Navbar = () => {
                         className="w-[181px] h-[32px] lg:w-[225px] lg:h-[39px]" />
                     <div className='flex items-center sm:hidden '>
                         <button className="text-white hover:text-blue-500 ">
-                            <ShoppingCart className='w-6 h-6'/>
+                           <span className='relative flex items-center gap-1'>
+                         <ShoppingCart className={`w-6 h-6 ${pathName=='/'?'text-white  hover:text-black':' hover:text-blue-500 text-black'} `} ></ShoppingCart>
+                    <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5  flex items-center justify-center">3</span>
+                </span>   
+                    <span className='hidden lg:flex'>Cart</span>
                          </button>
                         <button
                             className={`text-2xl ml-4 ${pathName=='/'?'hover:text-black text-white ':'text-black hover:text-blue-500'}`}

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const AboutSection = () => {
@@ -25,9 +26,11 @@ const AboutSection = () => {
                     <p className="text-gray-600 text-[13px] md:text-[14px]">
                         Welcome to Fresh Harvest, your premier destination for high-quality and fresh produce. We are passionate about providing you with the finest fruits, vegetables, and salad ingredients to nourish your body and delight your taste buds. With a commitment to excellence, sustainability, and customer satisfaction, Fresh Harvest is here to revolutionize your grocery shopping experience.
                     </p>
+                    <Link href="/about">
                     <button className="  border border-[#FF6A1A]  bg-white  font-semibold px-16 py-2 rounded hover:bg-[#FF6A1A] hover:text-black text-[#FF6A1A] transition">
                         Read More
                     </button>
+                    </Link>
                 </div>
                
             </div>

@@ -20,18 +20,18 @@ const OfferSection = () => {
 
     return (
         <section className="relative md:bg-[url('/images/offer/offerBg2.png')] md:bg-cover md:bg-no-repeat bg-white">
-            <div className="container mx-auto my-10
+            <div className="relative container mx-auto my-10
        h-[620px] md:h-[550px] 2xl:h-[640] md:flex flex-col md:flex-row items-center justify-between  rounded-lg shadow-lg   ">
                 { /* Background Images */}
             
                 {backgroundImages?.map((image, index) => (
                     <div
                         key={index}
-                        className={`${image.className}`}
+                        className={`${image?.className}`}
                     >
                         <Image
-                            src={image.src}
-                            alt={image.alt}
+                            src={image?.src}
+                            alt={image?.alt}
                             width={500}
                             height={500}
                             className="w-full h-full md:max-w-lg md:mx-0"
@@ -66,13 +66,13 @@ const OfferSection = () => {
             </div>
 
             {/* Right Side: Image */}
-            <div className="hidden md:block absolute right-0 bottom-24 lg:right-20  lg:bottom-20 xl:right-32">
+            <div className="hidden lg:block absolute right-0 bottom-24 lg:right-20  lg:bottom-20 xl:right-28">
                 <Image
                     src="/images/offer/fruits.png"
                     alt="Seasonal Fruit Bundle"
                     width={500}
                     height={500}
-                    className="w-full h-full md:max-w-sm lg:max-w-lg mx-auto xl:mx-0"
+                    className="w-full h-full  lg:w-lg mx-auto xl:mx-0"
                 />
             </div>
            </div>

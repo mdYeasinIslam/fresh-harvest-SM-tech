@@ -1,6 +1,7 @@
 import React from 'react';
 import CommonTitle from '../CommonTitle';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface BlogCardProps {
     imageSrc: string;
@@ -21,9 +22,9 @@ const BlogCard: React.FC<BlogCardProps> = ({ imageSrc, date, title, link }) => (
         <div className="space-y-2">
             <p className="text-gray-500 text-sm">{date}</p>
             <h3 className="text-sm text-semibold md:text-md xl:text-lg font-medium ">{title}</h3>
-            <a href={link} className="text-[#FF6A1A]   font-semibold inline-block">
+            <Link href={link} className="text-[#FF6A1A]   font-semibold inline-block">
                 Read More →
-            </a>
+            </Link>
         </div>
     </div>
 );
@@ -34,19 +35,19 @@ const BlogSect = () => {
             imageSrc: '/images/blog/image1.png',
             date: 'May 23, 2024',
             title: "Exploring Seasonal Delights: A Guide to What's Fresh Right Now",
-            link: '#',
+            link: '/blog',
         },
         {
             imageSrc: '/images/blog/image2.png',
             date: 'May 23, 2024',
             title: 'Mastering Salad Creations: Tips and Tricks for Building Delicious and Nutritious Salads',
-            link: '#',
+            link: '/blog',
         },
         {
             imageSrc: '/images/blog/image3.png',
             date: 'May 23, 2024',
             title: 'The Art of Meal Prepping: How to Save Time and Eat Healthy Throughout the Week',
-            link: '#',
+            link: '/blog',
         },
     ];
 

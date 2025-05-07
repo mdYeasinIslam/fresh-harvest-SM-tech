@@ -45,7 +45,7 @@ const ForegroundContent = () => (
                     Shop Now
                 </button>
             </Link>
-            <div className='relative md:left-32 lg:left-40 xl:left-48 w-[192px] md:w-[225px]  lg:w-[332px] flex border-2 border-[#749B3F] rounded-lg bg-[#EBEBEB] p-1'>
+            <div className='relative top-10 md:left-32 lg:left-40 xl:left-48 w-[192px] md:w-[225px]  lg:w-[332px] flex border-2 border-[#749B3F] rounded-lg bg-[#EBEBEB] p-1'>
                 <div className='lg:p-1'>
                     <h4 className='font-medium text-[8px] md:text-[11px] lg:text-[14px] text-[#176D38] '>Special Offer</h4>
                     <h1 className='text-[16px] md:text-xl lg:text-3xl font-medium '>Fresh Salad</h1>
