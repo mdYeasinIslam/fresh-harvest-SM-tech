@@ -1,12 +1,12 @@
 import { Product } from '@/types/product';
 import Image from 'next/image';
-const fixImageUrl = (url: string) => {
-  if (!url) return ''; // fallback if url is undefined
-  return url.replace('i.ibb.co.com', 'i.ibb.co');
-};
+// const fixImageUrl = (url: string) => {
+//   if (!url) return ''; // fallback if url is undefined
+//   return url.replace('i.ibb.co.com', 'i.ibb.co');
+// };
 const ProductCard =({ product }: { product: Product }) => {
-    const rawUrl = product?.images[0];
-  const imageUrl = fixImageUrl(rawUrl);
+//     const rawUrl = product?.images[0];
+//   const imageUrl = fixImageUrl(rawUrl);
     return (
         <div>
 

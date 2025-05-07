@@ -30,7 +30,7 @@ const FeedbackSect = () => {
               {/* Right Side - Details */}
               <div className=" lg:text-left space-y-4 lg:col-span-3  bg-[#F4F6F6] p-8 rounded-lg shadow-lg">
                   <p className="text-lg text-gray-600 italic">
-                     "I absolutely love Fresh Harvest! The quality of their produce is outstanding. It's always fresh, flavorful, and delicious. The convenience of ordering online and having it delivered to my doorstep saves me so much time. Fresh Harvest has become my go-to for all my fruit and vegetable needs."
+                     I absolutely love Fresh Harvest! The quality of their produce is outstanding. It is always fresh, flavorful, and delicious. The convenience of ordering online and having it delivered to my doorstep saves me so much time. Fresh Harvest has become my go-to for all my fruit and vegetable needs.
                   </p>
                   <h4 className="text-xl font-bold text-gray-800">Jane Doe --  <span className="text-sm text-gray-500">Professional chef</span></h4>
                 
