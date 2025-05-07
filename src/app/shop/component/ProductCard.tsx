@@ -18,7 +18,7 @@ const ProductCard =({ product }: { product: Product }) => {
 
             <div className="bg-white shadow-md rounded-xl overflow-hidden hover:shadow-lg transition-shadow p-2 ">
 
-                <div className="w-[149px] h-[120px] md:w-[258px] md:h-[208px] bg-gray-200 rounded-md mx-auto">
+                <div className="w-[149px] h-[120px] lg:w-[230px] lg:h-[200px] xl:w-[258px] xl:h-[208px] bg-gray-200 rounded-md mx-auto">
                     <Image
                         src={product?.images[0]}
                         alt={product?.productName}

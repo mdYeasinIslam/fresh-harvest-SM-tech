@@ -9,7 +9,7 @@ import Navbar from '@/components/Navbar';
 export default function Shop() {
   const { data: products, error, isLoading } = useGetProductsQuery();
   const productsData = products?.data as Product[]
-  if (isLoading) return <p className="flex justify"><Loader/></p>;
+  if (isLoading) return <div className="flex justify"><Loader/></div>;
   if (error) return <p className="p-4 text-red-500">Failed to load products.</p>;
 
     return (
@@ -39,7 +39,7 @@ export default function Shop() {
                 </div>
             </div>
         
-        <div className="container mx-auto p-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+        <div className="container mx-auto p-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {productsData?.map((product) => (
                 <ProductCard key={product.id} product={product} />
             ))}

@@ -1,13 +1,14 @@
 import { Mail, MapPin, Phone } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-100 py-8 px-4 md:px-8 lg:px-16 space-y-8">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <footer className="bg-gray-100 py-8 px-4 md:px-3 lg:px-5 xl:px-16 space-y-8">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {/* Logo and App Links */}
-        <div className="flex flex-col justify-between">
+        <div className="md:col-span-3 col-span-1 lg:col-span-1 flex flex-col justify-between">
           <div className="flex items-center mb-4">
             <Image src="/Logo.png" alt="Fresh Harvests Logo" width={40} height={40} />
             <span className="text-lg font-bold ml-2">Fresh Harvests</span>
@@ -25,11 +26,10 @@ const Footer = () => {
         <div>
           <h4 className="font-semibold mb-4">Quick Links 1</h4>
           <ul className="space-y-2 text-[#4A4A52]">
-            <li><a href="#" className="hover:underline">Home</a></li>
-            <li><a href="#" className="hover:underline">Shop</a></li>
-            <li><a href="#" className="hover:underline">About Us</a></li>
-            <li><a href="#" className="hover:underline">Blog</a></li>
-            <li><a href="#" className="hover:underline">Detail Blog</a></li>
+            <li><Link href="/" className="hover:underline">Home</Link></li>
+            <li><Link href="/shop" className="hover:underline">Shop</Link></li>
+            <li><Link href="/about" className="hover:underline">About Us</Link></li>
+            <li><Link href="/blog" className="hover:underline">Blog</Link></li>
           </ul>
         </div>
 
@@ -37,17 +37,16 @@ const Footer = () => {
         <div>
           <h4 className="font-semibold mb-4">Quick Links 2</h4>
           <ul className="space-y-2 text-[#4A4A52]">
-            <li><a href="#" className="hover:underline">Favorites</a></li>
-            <li><a href="#" className="hover:underline">Cart</a></li>
-            <li><a href="#" className="hover:underline">Sign In</a></li>
-            <li><a href="#" className="hover:underline">Register</a></li>
+            <li><Link href="/favorite" className="hover:underline">Favorites</Link></li>
+            <li><Link href="/cart" className="hover:underline">Cart</Link></li>
+            <li><button className="hover:underline">Sign In</button></li>
           </ul>
         </div>
 
         {/* Contact Us */}
-        <div className="flex flex-col justify-between">
-          <ul className="space-y-2">
-            <h4 className="font-semibold mb-4">Contact Us</h4>
+        <div className="w-full flex flex-col justify-between">
+          <ul className="space-y-3">
+            <h4 className="font-semibold ">Contact Us</h4>
             <li className="flex items-center gap-2">
               <Phone className="text-[#749B3F]" />
               <span>123-456-7890</span>
