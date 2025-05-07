@@ -35,8 +35,8 @@ const ShopSection = () => {
     }
 
 
-      if (isLoading) return <div className="p-4 flex justify-center"><Loader/></div>;
-      if (error) return <p className="p-4 text-red-500">Failed to load products.</p>;
+      if (isLoading || isPending) return <div className="p-4 flex justify-center"><Loader/></div>;
+      if (error ||categoryError) return <p className="p-4 text-red-500">Failed to load products.</p>;
     
     return (
         <section className="container mx-auto bg-white mt-44 px-4">
