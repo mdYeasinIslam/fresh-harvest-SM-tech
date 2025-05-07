@@ -1,16 +1,46 @@
 import { closeLogInModal, openRegisterModal } from '@/features/modal/modalSlice'
 import { useAppDispatch } from '@/redux/hooks'
+import { useLoginUserMutation } from '@/services/auth/authApi'
 import { Facebook, X } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
+import toast from 'react-hot-toast'
 
 const Login = () => {
     const dispatch = useAppDispatch()
-   
+    const [loginUser, { isLoading }] = useLoginUserMutation()
+    
     const handleRegisterModal = () => {
         dispatch(closeLogInModal())
         dispatch(openRegisterModal())
+
     }
+    const handleFormData = (e: React.FormEvent<HTMLFormElement>) => {
+            e.preventDefault()
+            const formData = new FormData(e.currentTarget);
+            const email = formData.get('email') as string;
+            const password = formData.get('password') as string;
+            console.log(email,password)
+            
+            try {
+               if (email && password) {
+                loginUser({email, password })
+                    .unwrap()
+                    .then((res) => {
+                        console.log(res)
+                       
+                    })
+                    .catch((err) => {
+                        console.log(err)
+                    })
+            }  
+            } catch (error) {
+                toast.error("Something went wrong",error)
+                console.log(error)
+            }
+           
+        }
+
     return (
         <>
             {/* Overlay to freeze background */}
@@ -25,7 +55,7 @@ const Login = () => {
 
                     {/* ---------------------------------- */}
                     <h2 className="text-2xl font-bold text-center">Login</h2>
-                    <form className="space-y-1 md:space-y-4">
+                    <form onSubmit={handleFormData} className="space-y-1 md:space-y-4">
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                                 Email
@@ -33,6 +63,7 @@ const Login = () => {
                             <input
                                 type="email"
                                 id="email"
+                                name="email"
                                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                 placeholder="Enter your email"
                                 required
@@ -47,6 +78,7 @@ const Login = () => {
                                 <input
                                     type="password"
                                     id="password"
+                                    name="password"
                                     className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                     placeholder="Enter your password"
                                     required

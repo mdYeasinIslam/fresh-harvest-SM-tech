@@ -1,16 +1,39 @@
 import { closeRegisterModal, openLoginModal } from '@/features/modal/modalSlice'
 import { useAppDispatch } from '@/redux/hooks'
+import { useRegisterUserMutation } from '@/services/auth/authApi'
 import { Facebook, X } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
 
 
 const Register = () => {
-
     const dispatch = useAppDispatch()
+    const [registerUser, { isLoading }] = useRegisterUserMutation();
+
+
     const handleLoginModal = () => {
         dispatch(openLoginModal())
         dispatch(closeRegisterModal())
+    }
+
+    const handleFormData = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        const formData = new FormData(e.currentTarget);
+        const fullName = formData.get('name') as string;
+        const email = formData.get('email') as string;
+        const password = formData.get('password') as string;
+        console.log(fullName,email,password)
+        if (fullName && email && password) {
+            registerUser({ fullName, email, password })
+                .unwrap()
+                .then((res) => {
+                    console.log(res)
+                    e.currentTarget.reset()
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
     }
     return (
         <>
@@ -25,7 +48,7 @@ const Register = () => {
                    
                     {/* ---------------------------------- */}
                     <h2 className="text-2xl font-bold text-center">Register</h2>
-                    <form className="space-y-1 md:space-y-4">
+                    <form onSubmit={handleFormData} className="space-y-1 md:space-y-4">
                         <div>
                             <label htmlFor="name" className="block text-sm font-medium text-gray-700">
                                 Your Name :
@@ -46,6 +69,7 @@ const Register = () => {
                             <input
                                 type="email"
                                 id="email"
+                                name='email'
                                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                 placeholder="Enter your email"
                                 required
@@ -59,6 +83,7 @@ const Register = () => {
                                 <input
                                     type="password"
                                     id="password"
+                                    name='password'
                                     className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                     placeholder="Enter your password"
                                     required

@@ -18,6 +18,10 @@ const Navbar = () => {
     const dispatch = useAppDispatch()
     const pathName = usePathname();
 
+    const handleOnclick = () => {
+        dispatch(openLoginModal())
+        setMenuOpen(false)
+    }
    
     const navElement = ({name,path}:NavbarProps)=>{
         return (
@@ -31,7 +35,7 @@ const Navbar = () => {
                 <button className={`flex items-center gap-0.5  xl:gap-2  ${pathName=='/'?'hover:text-black':'hover:text-blue-500'}`}><Heart className=' w-6 lg:w-4 xl:w-6 h-6 lg:h-4 xl:h-6  '/><span className='hidden lg:flex'>Favorite</span></button>
                 <button className={`hidden md:flex items-center gap-0.5 xl:gap-2 ${pathName=='/'?'hover:text-black':'hover:text-blue-500'}`}><ShoppingCart className='w-6 h-6 lg:w-4 xl:w-6 lg:h-4 xl:h-6  '/><span className='hidden lg:flex'>Cart</span></button>
             </div>
-            <button onClick={()=>dispatch(openLoginModal())} className={`${pathName=='/'?' hover:text-black':' hover:text-blue-500 text-white md:text-black'}  border px-1 rounded-md font-semibold`}>Sign In</button>
+            <button onClick={handleOnclick} className={`${pathName=='/'?' hover:text-black':' hover:text-blue-500 text-white md:text-black'}  border px-1 rounded-md font-semibold`}>Sign In</button>
     </>
     return (
         <nav className="relative ">

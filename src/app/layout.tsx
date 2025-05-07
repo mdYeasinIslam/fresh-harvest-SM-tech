@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import { Providers } from "@/redux/Providers";
 import ModalManager from "@/components/modal/ModalManager";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +33,8 @@ export default function RootLayout({
       >
         <Providers>
           {children}
-          <ModalManager/>
+          <ModalManager />
+          <Toaster position="top-right" reverseOrder={false} />
           <Footer/>
         </Providers>
       </body>
