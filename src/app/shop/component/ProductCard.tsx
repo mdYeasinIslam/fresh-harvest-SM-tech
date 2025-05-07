@@ -1,5 +1,6 @@
 import { Product } from '@/types/product';
 import Image from 'next/image';
+import Link from 'next/link';
 // const fixImageUrl = (url: string) => {
 //   if (!url) return ''; // fallback if url is undefined
 //   return url.replace('i.ibb.co.com', 'i.ibb.co');
@@ -32,9 +33,11 @@ const ProductCard =({ product }: { product: Product }) => {
                 <div className="text-center p-2">
                     <h3 className="text-lg font-semibold ">{product?.productName}</h3>
                     <p className="text-gray-600 ">${ product?.price}</p>
-                    <button className="w-full border border-gray-300 bg-white text-black py-2 rounded hover:bg-[#FF6A1A] transition">
-                        Add to Cart
-                    </button>
+                    <Link href={`/shop/${product?.id}`} className="">
+                        <button className="w-full border border-gray-300 bg-white text-black py-2 rounded hover:bg-[#FF6A1A] transition">
+                            Add to Cart
+                        </button>
+                    </Link>
                 </div>
             </div>
         </div>

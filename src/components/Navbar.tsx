@@ -44,8 +44,8 @@ const Navbar = () => {
 
     const navElement = ({name,path}:NavbarProps)=>{
         return (
-            <div onClick={()=>setMenuOpen(false)} className={`font-semibold ${pathName === `/${path}` ? "text-black md:text-blue-500" : "text-white md:text-black"}`}>
-                <Link href={`/${path}`} className="hover:text-blue-500 text-md">{name}</Link>
+            <div onClick={()=>setMenuOpen(false)} className={`font-semibold ${pathName === `${path}` || pathName.includes(path+'/')? "text-black md:text-blue-500" : "text-white md:text-black"}`}>
+                <Link href={`${path}`} className="hover:text-blue-500 text-md">{name}</Link>
             </div>
         )
     }
@@ -92,10 +92,10 @@ const Navbar = () => {
 
                 {/* Center: Navigation Icons/Elements (Hidden on small devices) */}
                 <div className="hidden sm:flex flex-2 justify-center gap-6 lg:gap-10 xl:gap-16 ">
-                    {navElement({name:"Home",path:""})}
-                    {navElement({name:"Shop",path:"shop"})}
-                    {navElement({ name: "About us", path: "about" })}
-                    {navElement({ name: "Blog", path: "blog" })}
+                    {navElement({name:"Home",path:"/"})}
+                    {navElement({name:"Shop",path:"/shop"})}
+                    {navElement({ name: "About us", path: "/about" })}
+                    {navElement({ name: "Blog", path: "/blog" })}
                 </div>
 
                 {/* Right Side: Favorite, Cart, Sign In (Hidden on small devices) */}
@@ -118,10 +118,10 @@ const Navbar = () => {
                 </button>
                 
                 <nav className="flex flex-col items-start p-5 gap-2">
-                    {navElement({name:"Home",path:""})}
-                    {navElement({name:"Shop",path:"shop"})}
-                    {navElement({ name: "About us", path: "about" })}
-                    {navElement({ name: "Blog", path: "blog" })}
+                    {navElement({name:"Home",path:"/"})}
+                    {navElement({name:"Shop",path:"/shop"})}
+                    {navElement({ name: "About us", path: "/about" })}
+                    {navElement({ name: "Blog", path: "/blog" })}
                     {othersNavElement}
                    
                 </nav>
