@@ -1,10 +1,16 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { Product } from '@/types/product';
+import { CategoryType } from '@/types/categoryType';
 
 type QueryType = {
     success: boolean,
     message: string
     data:Product[]
+}
+type Category = {
+   success: boolean,
+    message: string
+    data:CategoryType[]
 }
 
 export const productApi = createApi({
@@ -14,10 +20,15 @@ export const productApi = createApi({
     getProducts: builder.query<QueryType, void>({
       query: () => 'products',
     }),
+    
+    getCategory: builder.query<Category, void>({
+      query: () => 'category',
+    }),
+    
     getProductById: builder.query<QueryType, string>({
       query: (id:string) => `products/${id}`,
     }),
   }),
 }); 
 
-export const { useGetProductsQuery,useGetProductByIdQuery } = productApi;
+export const { useGetProductsQuery,useGetProductByIdQuery, useGetCategoryQuery } = productApi;

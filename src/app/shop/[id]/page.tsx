@@ -1,7 +1,7 @@
 'use client'
 import Loader from '@/components/Loader';
 import Navbar from '@/components/Navbar'
-import { useGetProductByIdQuery } from '@/services/productApi';
+import {  useGetProductByIdQuery } from '@/services/productApi';
 import { Product } from '@/types/product';
 import { fixImageUrl } from '@/utility/fixURL';
 import { Heart, ShoppingCart } from 'lucide-react';
@@ -9,18 +9,20 @@ import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import React from 'react'
 import ExtraInfo from '../component/ExtraInfo';
+import ProductByCategory from '../component/ProductByCategory';
 
 const SingleProduct = () => {
     const param = useParams()
     const id = param.id as string
     const { data, isLoading, isError } = useGetProductByIdQuery(id);
+    const [categoryName,setCategoryName] = React.useState('')
     const product =data?.data as Product | undefined
-    console.log(product?.productName)
-
+console.log(categoryName)
     const imgeUrl =fixImageUrl(product?.images[0])
-    console.log(imgeUrl)
+    
     if (isLoading) return <div className="flex justify-center"><Loader/></div>;
-    if (isError || !product) return <p>Something went wrong!</p>;
+    if (isError || !product ) return <p>Something went wrong!</p>;
+
   return (
       <div>
           <Navbar/>
@@ -76,6 +78,7 @@ const SingleProduct = () => {
             </div>
           </div>
           <ExtraInfo product={product} />
+          <ProductByCategory categoryId={product?.categoryId } setCategoryName={setCategoryName} />
       </div>
   )
 }
