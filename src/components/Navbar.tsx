@@ -20,23 +20,24 @@ const Navbar = () => {
     const handleLoginModal = (value:boolean):void => {
         setOpenLoginModal(value);
     }
-    
+    const hanleSignInFuncions = () => {
+        setOpenLoginModal(true)
+        setMenuOpen(false)
 
-
+    }
     const navElement = ({name,path}:NavbarProps)=>{
         return (
-            <div className={`font-semibold ${pathName === `/${path}` ? "text-black md:text-blue-500" : "text-white md:text-black"}`}>
+            <div onClick={()=>setMenuOpen(false)} className={`font-semibold ${pathName === `/${path}` ? "text-black md:text-blue-500" : "text-white md:text-black"}`}>
                 <Link href={`/${path}`} className="hover:text-blue-500 text-md">{name}</Link>
             </div>
         )
-
     }
     const othersNavElement = <>
             <div className='hidden md:flex justify-between items-center gap-5 lg:gap-2 xl:gap-4 text-md'>
                 <button className={`flex items-center gap-0.5  xl:gap-2  ${pathName=='/'?'hover:text-black':'hover:text-blue-500'}`}><Heart className=' w-6 lg:w-4 xl:w-6 h-6 lg:h-4 xl:h-6  '/><span className='hidden lg:flex'>Favorite</span></button>
                 <button className={`hidden md:flex items-center gap-0.5 xl:gap-2 ${pathName=='/'?'hover:text-black':'hover:text-blue-500'}`}><ShoppingCart className='w-6 h-6 lg:w-4 xl:w-6 lg:h-4 xl:h-6  '/><span className='hidden lg:flex'>Cart</span></button>
             </div>
-            <button onClick={()=>setOpenLoginModal(true)} className={`${pathName=='/'?' hover:text-black':' hover:text-blue-500 text-white md:text-black'}  border px-1 rounded-md font-semibold`}>Sign In</button>
+            <button onClick={hanleSignInFuncions} className={`${pathName=='/'?' hover:text-black':' hover:text-blue-500 text-white md:text-black'}  border px-1 rounded-md font-semibold`}>Sign In</button>
     </>
     return (
         <nav className="relative ">

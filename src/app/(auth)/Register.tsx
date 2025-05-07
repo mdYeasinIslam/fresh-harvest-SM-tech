@@ -1,17 +1,26 @@
-import { Facebook, X } from "lucide-react";
-import Image from "next/image";
+import FormInput from '@/components/FormInput'
+import { Facebook, X } from 'lucide-react'
+import Image from 'next/image'
+import React from 'react'
+
 type Props = { 
     setOpenLoginModal: React.Dispatch<React.SetStateAction<boolean>>
 }
-const FormInput = ({ setOpenLoginModal }: Props) => {
+
+const Register = ({setOpenLoginModal}:Props) => {
     const handleClose = () => {
         // Logic to close the modal
         setOpenLoginModal(false);
     }
 
-  return (
-     <div className="fixed inset-0 flex items-center justify-center bg-black/50">
-                <div className="bg-white p-2 md:p-6 rounded-lg shadow-lg md:w-96 z-20  space-y-2 md:space-y-5">
+    return (
+        <>
+            {/* Overlay to freeze background */}
+            <div className="fixed inset-0  bg-opacity-50"></div>
+
+            {/* Login Modal */}
+              <div className="fixed inset-0 flex items-center justify-center bg-black/50">
+                <div className="bg-white p-2 md:p-6 rounded-lg shadow-lg md:w-96 z-20  space-y-2 lg:space-y-5">
                 {/* Close section of modal */}
                     <div onClick={handleClose} className=' font-semibold flex justify-end'><X /></div>
                     {/* ---------------------------------- */}
@@ -111,7 +120,8 @@ const FormInput = ({ setOpenLoginModal }: Props) => {
                     </div>
                 </div>
             </div>
-  )
+        </>
+    )
 }
 
-export default FormInput
+export default Register
