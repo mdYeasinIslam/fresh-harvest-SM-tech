@@ -1,6 +1,7 @@
 import { closeLogInModal, openRegisterModal } from '@/features/modal/modalSlice'
 import { useAppDispatch } from '@/redux/hooks'
 import { useLoginUserMutation } from '@/services/auth/authApi'
+import { setToken } from '@/services/auth/authSlice'
 import { Facebook, X } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
@@ -8,13 +9,14 @@ import toast from 'react-hot-toast'
 
 const Login = () => {
     const dispatch = useAppDispatch()
-    const [loginUser, { isLoading }] = useLoginUserMutation()
+    // const [loginUser, { isLoading }] = useLoginUserMutation()
+    const [loginUser, ] = useLoginUserMutation()
     
     const handleRegisterModal = () => {
         dispatch(closeLogInModal())
         dispatch(openRegisterModal())
-
     }
+
     const handleFormData = (e: React.FormEvent<HTMLFormElement>) => {
             e.preventDefault()
             const formData = new FormData(e.currentTarget);
@@ -28,14 +30,22 @@ const Login = () => {
                     .unwrap()
                     .then((res) => {
                         console.log(res)
-                       
+                        if (res.success) {
+                            localStorage.setItem('authToken', res?.data?.token)     
+                            toast.success(res?.message)
+                            dispatch(setToken(res?.data?.token));
+                            dispatch(closeLogInModal())
+                        }
+                        else {
+                            toast.error(res.message)
+                        }
                     })
                     .catch((err) => {
                         console.log(err)
                     })
             }  
             } catch (error) {
-                toast.error("Something went wrong",error)
+                toast.error("Something went wrong")
                 console.log(error)
             }
            

@@ -8,7 +8,8 @@ import React from 'react'
 
 const Register = () => {
     const dispatch = useAppDispatch()
-    const [registerUser, { isLoading }] = useRegisterUserMutation();
+    const [registerUser] = useRegisterUserMutation();
+    // const [registerUser, { isLoading }] = useRegisterUserMutation();
 
 
     const handleLoginModal = () => {
@@ -28,6 +29,7 @@ const Register = () => {
                 .unwrap()
                 .then((res) => {
                     console.log(res)
+
                     e.currentTarget.reset()
                 })
                 .catch((err) => {

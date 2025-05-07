@@ -1,11 +1,13 @@
 'use client'
 import { openLoginModal } from '@/features/modal/modalSlice';
-import { useAppDispatch } from '@/redux/hooks';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { logout, setToken } from '@/services/auth/authSlice';
 import { Heart, ShoppingCart, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 
 type NavbarProps = {
     name: string;
@@ -18,11 +20,28 @@ const Navbar = () => {
     const dispatch = useAppDispatch()
     const pathName = usePathname();
 
+
+    const token = useAppSelector(state => state.auth.token);
+
+    useEffect(() => {
+        const tokenValue = localStorage.getItem('authToken');
+       
+        if (tokenValue) {
+            dispatch(setToken(tokenValue));
+        }
+    }, []);
+
     const handleOnclick = () => {
         dispatch(openLoginModal())
         setMenuOpen(false)
     }
-   
+    const signOutHandler = () => {
+        dispatch(logout());
+        localStorage.removeItem('authToken')
+        toast.success("Sign out successfully")
+        dispatch(openLoginModal())
+    }
+
     const navElement = ({name,path}:NavbarProps)=>{
         return (
             <div onClick={()=>setMenuOpen(false)} className={`font-semibold ${pathName === `/${path}` ? "text-black md:text-blue-500" : "text-white md:text-black"}`}>
@@ -35,7 +54,14 @@ const Navbar = () => {
                 <button className={`flex items-center gap-0.5  xl:gap-2  ${pathName=='/'?'hover:text-black':'hover:text-blue-500'}`}><Heart className=' w-6 lg:w-4 xl:w-6 h-6 lg:h-4 xl:h-6  '/><span className='hidden lg:flex'>Favorite</span></button>
                 <button className={`hidden md:flex items-center gap-0.5 xl:gap-2 ${pathName=='/'?'hover:text-black':'hover:text-blue-500'}`}><ShoppingCart className='w-6 h-6 lg:w-4 xl:w-6 lg:h-4 xl:h-6  '/><span className='hidden lg:flex'>Cart</span></button>
             </div>
-            <button onClick={handleOnclick} className={`${pathName=='/'?' hover:text-black':' hover:text-blue-500 text-white md:text-black'}  border px-1 rounded-md font-semibold`}>Sign In</button>
+            {
+              token !== null && token?.length > 0 ?
+                 <button onClick={signOutHandler} className={`${pathName=='/'?' hover:text-black':' hover:text-blue-500 text-white md:text-black'}  border px-1 rounded-md font-semibold`}>Sign-Out</button>
+                :
+
+                 <button onClick={handleOnclick} className={`${pathName=='/'?' hover:text-black':' hover:text-blue-500 text-white md:text-black'}  border px-1 rounded-md font-semibold`}>Sign In</button>
+            }
+           
     </>
     return (
         <nav className="relative ">
