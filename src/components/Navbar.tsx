@@ -1,5 +1,6 @@
 'use client'
-import Login from '@/app/(auth)/LogIn';
+import { openLoginModal } from '@/features/modal/modalSlice';
+import { useAppDispatch } from '@/redux/hooks';
 import { Heart, ShoppingCart, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -14,17 +15,10 @@ type NavbarProps = {
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
-    const [openLoginModal,setOpenLoginModal] = useState(false)
+    const dispatch = useAppDispatch()
     const pathName = usePathname();
-    
-    const handleLoginModal = (value:boolean):void => {
-        setOpenLoginModal(value);
-    }
-    const hanleSignInFuncions = () => {
-        setOpenLoginModal(true)
-        setMenuOpen(false)
 
-    }
+   
     const navElement = ({name,path}:NavbarProps)=>{
         return (
             <div onClick={()=>setMenuOpen(false)} className={`font-semibold ${pathName === `/${path}` ? "text-black md:text-blue-500" : "text-white md:text-black"}`}>
@@ -37,14 +31,12 @@ const Navbar = () => {
                 <button className={`flex items-center gap-0.5  xl:gap-2  ${pathName=='/'?'hover:text-black':'hover:text-blue-500'}`}><Heart className=' w-6 lg:w-4 xl:w-6 h-6 lg:h-4 xl:h-6  '/><span className='hidden lg:flex'>Favorite</span></button>
                 <button className={`hidden md:flex items-center gap-0.5 xl:gap-2 ${pathName=='/'?'hover:text-black':'hover:text-blue-500'}`}><ShoppingCart className='w-6 h-6 lg:w-4 xl:w-6 lg:h-4 xl:h-6  '/><span className='hidden lg:flex'>Cart</span></button>
             </div>
-            <button onClick={hanleSignInFuncions} className={`${pathName=='/'?' hover:text-black':' hover:text-blue-500 text-white md:text-black'}  border px-1 rounded-md font-semibold`}>Sign In</button>
+            <button onClick={()=>dispatch(openLoginModal())} className={`${pathName=='/'?' hover:text-black':' hover:text-blue-500 text-white md:text-black'}  border px-1 rounded-md font-semibold`}>Sign In</button>
     </>
     return (
         <nav className="relative ">
-            {/* Log in component */}
-            <div className={`fixed inset-0 z-15 ${openLoginModal?'':'hidden'}`}>
-                <Login setOpenLoginModal={setOpenLoginModal} />
-             </div>
+            {/* Log in component*/}
+            
             <div className="container mx-auto flex justify-around items-center w-full px-4 py-8 lg:px-5  ">
                 {/* Left Side: Logo */}
                 <div className="w-full md:max-w-fit flex items-center justify-between ">

@@ -1,18 +1,17 @@
-import FormInput from '@/components/FormInput'
+import { closeRegisterModal, openLoginModal } from '@/features/modal/modalSlice'
+import { useAppDispatch } from '@/redux/hooks'
 import { Facebook, X } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
 
-type Props = { 
-    setOpenLoginModal: React.Dispatch<React.SetStateAction<boolean>>
-}
 
-const Register = ({setOpenLoginModal}:Props) => {
-    const handleClose = () => {
-        // Logic to close the modal
-        setOpenLoginModal(false);
+const Register = () => {
+
+    const dispatch = useAppDispatch()
+    const handleLoginModal = () => {
+        dispatch(openLoginModal())
+        dispatch(closeRegisterModal())
     }
-
     return (
         <>
             {/* Overlay to freeze background */}
@@ -22,10 +21,24 @@ const Register = ({setOpenLoginModal}:Props) => {
               <div className="fixed inset-0 flex items-center justify-center bg-black/50">
                 <div className="bg-white p-2 md:p-6 rounded-lg shadow-lg md:w-96 z-20  space-y-2 lg:space-y-5">
                 {/* Close section of modal */}
-                    <div onClick={handleClose} className=' font-semibold flex justify-end'><X /></div>
+                    <div onClick={()=>dispatch(closeRegisterModal())} className=' font-semibold flex justify-end'><X /></div>
+                   
                     {/* ---------------------------------- */}
-                    <h2 className="text-2xl font-bold text-center">Login</h2>
+                    <h2 className="text-2xl font-bold text-center">Register</h2>
                     <form className="space-y-1 md:space-y-4">
+                        <div>
+                            <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                                Your Name :
+                            </label>
+                            <input
+                                type="text"
+                                id='name'
+                                name="name"
+                                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                placeholder="Enter your name"
+                                required
+                            />
+                        </div>
                         <div>
                             <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                                 Email
@@ -35,6 +48,7 @@ const Register = ({setOpenLoginModal}:Props) => {
                                 id="email"
                                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                 placeholder="Enter your email"
+                                required
                             />
                         </div>
                         <div>
@@ -47,6 +61,7 @@ const Register = ({setOpenLoginModal}:Props) => {
                                     id="password"
                                     className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                     placeholder="Enter your password"
+                                    required
                                 />
                                 <button
                                     type="button"
@@ -67,21 +82,7 @@ const Register = ({setOpenLoginModal}:Props) => {
                                 </button>
                             </div>
                         </div>
-                        <div className='flex justify-between items-center'>
-                            <div>
-                                <input
-                                    type="checkbox"
-                                    id="remember"
-                                    className="mr-2 leading-tight"
-                                />
-                                <label htmlFor="remember" className="text-sm text-gray-700">
-                                    Remember me
-                                </label>
-                            </div>
-                            <div>
-                               <p className='text-sm font-semibold underline cursor-pointer hover:text-gray-600'>Forgot Password</p>
-                            </div>
-                        </div>
+                        
                         <button
                             type="submit"
                             className="w-full bg-[#FF6A1A] text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
@@ -112,9 +113,9 @@ const Register = ({setOpenLoginModal}:Props) => {
                     </div>
                     <div>
                         <p className="text-center text-sm font-semibold ">
-                            Don't have an account?{" "}
-                            <span className="font-semibold cursor-pointer text-[#FF6A1A] hover:text-blue-500">
-                                Sign Up
+                            You already have an account{" "}
+                            <span onClick={handleLoginModal} className="font-semibold cursor-pointer text-[#FF6A1A] hover:text-blue-500">
+                                Sign In
                             </span>
                         </p>
                     </div>

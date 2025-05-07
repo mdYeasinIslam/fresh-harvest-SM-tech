@@ -103,7 +103,7 @@ const FormInput = ({ setOpenLoginModal }: Props) => {
                     </div>
                     <div>
                         <p className="text-center text-sm font-semibold ">
-                            Don't have an account?{" "}
+                            Do not have an account?{" "}
                             <span className="font-semibold cursor-pointer text-[#FF6A1A] hover:text-blue-500">
                                 Sign Up
                             </span>
